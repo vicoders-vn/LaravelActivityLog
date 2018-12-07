@@ -1,0 +1,15 @@
+{
+    "name": "vicoders/activity_log",
+    "authors": [
+        {
+            "name": "Chung Nguyen",
+            "email": "nguyenchung26011992@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vicoders\\ActivityLog\\": "src/app/"
+        }
+    },
+    "require": {}
+}
