@@ -19,7 +19,7 @@ Pull this package in through Composer (file `composer.json`).
     "require": {
         "php": "^7.1.3",
         "laravel/framework": "5.7.*",
-        "vicodersvn/activity_log": "dev-master"
+        "vicoders/activity_log": "dev-master"
     }
 }
 ```
