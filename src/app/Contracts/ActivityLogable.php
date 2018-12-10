@@ -5,4 +5,5 @@ interface ActivityLogable
 {
     public function getMeta();
     public function getMetaType();
+    public function simplize();
 }

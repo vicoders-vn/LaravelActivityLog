@@ -2,6 +2,8 @@
 
 namespace Vicoders\ActivityLog\Listeners;
 
+use App\Entities\Order;
+use App\Entities\Trip;
 use App\Entities\User;
 use App\Events\CoordinationSucceededEvent;
 use App\Events\DeleteCoordinatedOrderEvent;
@@ -21,14 +23,10 @@ class ActivityLogListener
 {
     public function handle($event)
     {
-        foreach ($event as $key => $obj) {
-            $event->{$key} = $this->simplize($obj);
-        }
-
         if ($event instanceof ActivityLogable) {
             $data = [
                 'event'     => get_class($event),
-                'payload'   => json_encode($event),
+                'payload'   => json_encode($event->simplize()),
                 'meta'      => $event->getMeta(),
                 'meta_type' => $event->getMetaType(),
             ];
@@ -39,17 +37,6 @@ class ActivityLogListener
             ];
         }
         ActivityLog::create($data);
-    }
-
-    public function simplize($obj)
-    {
-        switch (true) {
-            case $obj instanceof User:
-                return ['id' => $obj->id, 'email' => $obj->email];
-                break;
-            default:
-                return $obj;
-        }
     }
 
     public function subscribe($events)
