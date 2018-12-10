@@ -1,7 +1,10 @@
 <?php
 namespace Vicoders\ActivityLog\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
+use Vicoders\ActivityLog\Repositories\ActivityLogRepository;
+use Vicoders\ActivityLog\Repositories\ActivityLogRepositoryEloquent;
 
 class ActivityLogServiceProvider extends ServiceProvider
 {
@@ -15,5 +18,10 @@ class ActivityLogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../database/migrations/' => database_path('migrations'),
         ], 'migrations');
+    }
+
+    public function register()
+    {
+        App::bind(ActivityLogRepository::class, ActivityLogRepositoryEloquent::class);
     }
 }

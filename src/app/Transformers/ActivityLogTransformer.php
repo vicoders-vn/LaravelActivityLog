@@ -12,7 +12,7 @@ class ActivityLogTransformer extends TransformerAbstract
         return [
             'id'         => (int) $model->id,
             'event'      => $model->event,
-            'payload'    => $model->payload,
+            'payload'    => json_decode($model->payload),
             'meta'       => (int) $model->meta,
             'meta_type'  => $model->meta_type,
             'timestamps' => [

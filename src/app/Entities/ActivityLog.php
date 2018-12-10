@@ -26,4 +26,12 @@ class ActivityLog extends Model implements Transformable
         'meta',
         'meta_type',
     ];
+
+    public static function ableToView($user)
+    {
+        if ($user->can('view.activitylog')) {
+            return true;
+        }
+        return false;
+    }
 }
