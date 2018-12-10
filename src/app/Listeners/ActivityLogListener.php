@@ -2,9 +2,6 @@
 
 namespace Vicoders\ActivityLog\Listeners;
 
-use App\Entities\Order;
-use App\Entities\Trip;
-use App\Entities\User;
 use App\Events\CoordinationSucceededEvent;
 use App\Events\DeleteCoordinatedOrderEvent;
 use App\Events\VehicleMaintenanceReminderEvent;
@@ -25,10 +22,11 @@ class ActivityLogListener
     {
         if ($event instanceof ActivityLogable) {
             $data = [
-                'event'     => get_class($event),
-                'payload'   => json_encode($event->simplize()),
-                'meta'      => $event->getMeta(),
-                'meta_type' => $event->getMetaType(),
+                'event'       => get_class($event),
+                'payload'     => json_encode($event->simplize()),
+                'meta'        => $event->getMeta(),
+                'meta_type'   => $event->getMetaType(),
+                'description' => $event->getDescription(),
             ];
         } else {
             $data = [

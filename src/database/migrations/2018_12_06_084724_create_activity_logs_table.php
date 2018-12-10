@@ -19,6 +19,7 @@ class CreateActivityLogsTable extends Migration
             $table->longText('payload');
             $table->integer('meta');
             $table->string('meta_type');
+            $table->longText('description');
             $table->timestamps();
         });
     }

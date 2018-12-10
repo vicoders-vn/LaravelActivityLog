@@ -18,6 +18,11 @@ trait ActivityLogTrait
         return '';
     }
 
+    public function getDescription()
+    {
+        return '';
+    }
+
     public function simplize()
     {
         $data = [];

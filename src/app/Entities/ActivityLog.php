@@ -25,6 +25,7 @@ class ActivityLog extends Model implements Transformable
         'payload',
         'meta',
         'meta_type',
+        'description',
     ];
 
     public static function ableToView($user)
