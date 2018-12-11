@@ -23,5 +23,6 @@ class ActivityLogServiceProvider extends ServiceProvider
     public function register()
     {
         App::bind(ActivityLogRepository::class, ActivityLogRepositoryEloquent::class);
+        App::bind(\Vicoders\ActivityLog\Services\Simplize\Constracts\Simplize::class, \Vicoders\ActivityLog\Services\Simplize\Simplize::class);
     }
 }
