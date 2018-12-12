@@ -22,7 +22,9 @@ class ActivityLogServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->loadRoutesFrom(__DIR__ . '/../../routes.php');
         App::bind(ActivityLogRepository::class, ActivityLogRepositoryEloquent::class);
         App::bind(\Vicoders\ActivityLog\Services\Simplize\Constracts\Simplize::class, \Vicoders\ActivityLog\Services\Simplize\Simplize::class);
+        App::bind(\Vicoders\ActivityLog\Contracts\Controllers\Api\Admin\ActivityLogInterface::class, \Vicoders\ActivityLog\Http\Controllers\Api\Admin\ActivityLogController::class);
     }
 }
