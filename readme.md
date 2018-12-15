@@ -12,21 +12,7 @@ This package is very easy to set up. There are only couple of steps.
 
 ### Composer
 
-Pull this package in through Composer (file `composer.json`).
-
-```js
-{
-    "require": {
-        "php": "^7.1.3",
-        "laravel/framework": "5.7.*",
-        "vicoders/activity_log": "dev-master"
-    }
-}
-```
-
-Run this command inside your terminal.
-
-    composer update
+    composer require codersvn/laravel_activity_log
 
 ### Service Provider
 
